@@ -15,7 +15,7 @@ from .utils import compact_json_dict, flat_uuid
 
 class Client(object):
 
-    REST_API_URL = 'https://openapi-v2.kucoin.com'
+    REST_API_URL = 'https://openapi-sandbox.kucoin.com' #    REST_API_URL = 'https://openapi-v2.kucoin.com'
     SANDBOX_API_URL = 'https://openapi-sandbox.kucoin.com'
     API_VERSION = 'v1'
 

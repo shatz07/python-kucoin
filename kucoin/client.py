@@ -1018,7 +1018,8 @@ class Client(object):
             'side': side,
             'type': self.ORDER_LIMIT,
             'price': price,
-            'size': size
+            'size': size,
+            'tradeType': 'MARGIN_TRADE'
         }
 
         if client_oid:

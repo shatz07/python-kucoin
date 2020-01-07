@@ -931,7 +931,8 @@ class Client(object):
         
         if (tradeType == 'TRADE') or (tradeType == 'MARGIN_TRADE'):
             data['tradeType'] = tradeType
-            elif raise MarketOrderException('Need tradeType Parameter')
+        else: 
+            raise MarketOrderException('Need tradeType Parameter')
         if size:
             data['size'] = size
         if funds:
@@ -1024,7 +1025,6 @@ class Client(object):
             'type': self.ORDER_LIMIT,
             'price': price,
             'size': size,
-            'tradeType': 'MARGIN_TRADE'
         }
 
         if client_oid:

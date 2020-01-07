@@ -877,7 +877,7 @@ class Client(object):
 
     # Order Endpoints
 
-    def create_market_order(self, symbol, side, size=None, funds=None, client_oid=None, remark=None, stp=None):
+    def create_market_order(self, symbol, side, tradeType, size=None, funds=None, client_oid=None, remark=None, stp=None):
         """Create a market order
 
         One of size or funds must be set
@@ -888,6 +888,8 @@ class Client(object):
         :type symbol: string
         :param side: buy or sell
         :type side: string
+        :param tradeType: 'TRADE' or 'MARGIN_TRADE'
+        :type TradeType: string
         :param size: (optional) Desired amount in base currency
         :type size: string
         :param funds: (optional) Desired amount of quote currency to use
@@ -926,7 +928,10 @@ class Client(object):
             'symbol': symbol,
             'type': self.ORDER_MARKET
         }
-
+        
+        if (tradeType == 'TRADE') or (tradeType == 'MARGIN_TRADE'):
+            data['tradeType'] = tradeType
+            elif raise MarketOrderException('Need tradeType Parameter')
         if size:
             data['size'] = size
         if funds:
